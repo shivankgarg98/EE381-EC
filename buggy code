@@ -67,18 +67,11 @@ void loop() {     //This is the main loop, that keeps repeating
  // We convert the time into distance in centimeters, using the speed of sound and other factors.
   if(on%2 == 0){
     Intro();
+    
   }             
 
    if(mode%2 == 0){
-    for(;;){
-          if(keys[0].capacitiveSensor(NUM_OF_SAMPLES) > CAP_THRESHOLD){
-           on++;
-           loop();
-           delay(100);
-          }
-          if(keys[1].capacitiveSensor(NUM_OF_SAMPLES) > CAP_THRESHOLD) {
-          mode++;
-            display.clearDisplay();
+    display.clearDisplay();
             display.setTextSize(1);             // Normal 1:1 pixel scale
             display.setTextColor(WHITE);        // Draw white text
             display.setCursor(0,0);             // Start at top-left corner
@@ -91,6 +84,14 @@ void loop() {     //This is the main loop, that keeps repeating
             display.println(F("Currently : Practice"));
             display.println(F("Change Note: Press 3"));
             display.display();
+    for(;;){
+          if(keys[0].capacitiveSensor(NUM_OF_SAMPLES) > CAP_THRESHOLD){
+           on++;
+           loop();
+           delay(100);
+          }
+          if(keys[1].capacitiveSensor(NUM_OF_SAMPLES) > CAP_THRESHOLD) {
+          mode++;
           delay(100);
           }
           if(keys[2].capacitiveSensor(NUM_OF_SAMPLES) > CAP_THRESHOLD) {
@@ -239,7 +240,6 @@ void Intro(){
        on++;
        display.stopscroll();
        break;
-       delay(100);
       }
      
     return;
@@ -319,18 +319,4 @@ void setTone(int pin, int note, int duration) {
   tone(pin, note, duration);
   delay(duration);
   noTone(pin);
-}
-void helper(){
-          if(keys[0].capacitiveSensor(NUM_OF_SAMPLES) > CAP_THRESHOLD){
-           on++;
-           delay(20);
-          }
-          if(keys[1].capacitiveSensor(NUM_OF_SAMPLES) > CAP_THRESHOLD) {
-          mode++;
-          delay(20);
-          }
-          if(keys[2].capacitiveSensor(NUM_OF_SAMPLES) > CAP_THRESHOLD) {
-          fun++;
-          delay(20);
-          }
 }
