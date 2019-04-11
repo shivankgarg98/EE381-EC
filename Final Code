@@ -233,7 +233,7 @@ void LoadSong(int load){
         setTone(sp, 824, tempo2 * 1.5);
         setTone(sp, 980, tempo2 *1.5);
         setTone(sp, 873, tempo2 * 1);
-        setTone(sp, M824, tempo2 * 2);
+        setTone(sp, 824, tempo2 * 2);
         setTone(sp, 1234, tempo2 * 1);
         setTone(sp, 1100, tempo2 * 2.5);
         setTone(sp, 925, tempo2 * 2.5);
